@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { CountType } from './countSlice';
+import { CountType } from '../countSlice';
 
-import reducer, { add, reset } from "./countSlice";
+import reducer, { add, reset } from "../countSlice";
 
 describe("With React Testing Library", () => {
   test("should handle a todo being added to an empty list", () => {

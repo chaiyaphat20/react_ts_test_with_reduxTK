@@ -2,9 +2,11 @@ import { countSlice } from "./slices/countSlice";
 import * as reduxTK from "@reduxjs/toolkit";
 import { combineReducers, PreloadedState } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   countStore: countSlice.reducer,
 });
+
+
 
 export const store = (preloadedState?: PreloadedState<RootState>) => {
   return reduxTK.configureStore({
