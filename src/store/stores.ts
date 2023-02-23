@@ -18,4 +18,4 @@ export type AppStore = ReturnType<typeof store>;
 export type AppDispatch = AppStore["dispatch"];
 export type RootState = ReturnType<typeof rootReducer>;
 
-export default AppStore;
+export default store;
