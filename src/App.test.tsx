@@ -1,11 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
 import App from "./App";
-import configureStore from "redux-mock-store";
-import { CountType } from './store/slices/countSlice';
-import store, { AppDispatch, RootState } from './store/stores';
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
-import createMockStore from 'redux-mock-store';
 import { renderWithProviders } from './store/test-utils';
 
 
