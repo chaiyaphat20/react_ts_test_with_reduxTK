@@ -1,13 +1,21 @@
 import { countSlice } from "./slices/countSlice";
 import * as reduxTK from "@reduxjs/toolkit";
+import { combineReducers, PreloadedState } from "@reduxjs/toolkit";
 
-const store = reduxTK.configureStore({
-  reducer: {
-    countStore: countSlice.reducer,
-  },
+const rootReducer = combineReducers({
+  countStore: countSlice.reducer,
 });
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export const store = (preloadedState?: PreloadedState<RootState>) => {
+  return reduxTK.configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+};
 
-export default store;
+
+export type AppStore = ReturnType<typeof store>;
+export type AppDispatch = AppStore["dispatch"];
+export type RootState = ReturnType<typeof rootReducer>;
+
+export default AppStore;

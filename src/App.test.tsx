@@ -3,21 +3,16 @@ import { Provider } from "react-redux";
 import App from "./App";
 import configureStore from "redux-mock-store";
 import { CountType } from './store/slices/countSlice';
-import store from './store/stores';
+import store, { AppDispatch, RootState } from './store/stores';
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
+import createMockStore from 'redux-mock-store';
+import { renderWithProviders } from './store/test-utils';
 
 
 describe('With React Testing Library', () => {
-	// const initialState:CountType = { count: 10 };
-	// const mockStore = configureStore();
-	// let store:any;
-
 	test("render with reduxTK", () => {
-		// store = mockStore(initialState);
-		render(
-			<Provider store={store}>
-				<App />
-			</Provider>
-		);
+
+		renderWithProviders(<App />)
 
 		expect(screen.getByText("count: 0")).toBeInTheDocument();
 
